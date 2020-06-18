@@ -118,18 +118,24 @@ public class HashCalculatorFragment extends BaseFragment
         }
     };
 
-    private void showSnackbarWithoutAction(@NonNull String message) {
+    private void showSnackbarWithoutAction(
+            @NonNull String message
+    ) {
         new AppSnackbar(
                 context,
                 mainScreen,
                 message,
                 vibrator,
-                UIUtils.getAccentColor(context)
+                UIUtils.getAccentColor(
+                        context
+                )
         ).show();
     }
 
     @Override
-    public void userActionSelect(@NonNull UserActionType userActionType) {
+    public void userActionSelect(
+            @NonNull UserActionType userActionType
+    ) {
         switch (userActionType) {
             case ENTER_TEXT:
                 enterText();
@@ -169,7 +175,9 @@ public class HashCalculatorFragment extends BaseFragment
                 getContext(),
                 FileManagerActivity.class
         );
-        String lastPath = SettingsHelper.getLastPathForInnerFileManager(context);
+        String lastPath = SettingsHelper.getLastPathForInnerFileManager(
+                context
+        );
         if (lastPath != null) {
             openExplorerIntent.putExtra(
                     FileManagerActivity.LAST_PATH,

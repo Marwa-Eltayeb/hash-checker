@@ -202,7 +202,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
             );
         } catch (ActivityNotFoundException e) {
             try {
-                link = Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName);
+                link = Uri.parse(
+                        "https://play.google.com/store/apps/details?id=" + appPackageName
+                );
                 context.startActivity(
                         new Intent(
                                 Intent.ACTION_VIEW,
@@ -231,7 +233,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void initializeFileManagerSwitcher() {
         findPreference(getString(R.string.key_inner_file_manager))
                 .setOnPreferenceChangeListener((preference, o) -> {
-            SettingsHelper.setRefreshSelectedFileStatus(context, true);
+            SettingsHelper.setRefreshSelectedFileStatus(
+                    context,
+                    true
+            );
             return true;
         });
     }
